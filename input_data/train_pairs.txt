@@ -1,0 +1,1 @@
+person@1=person_whole_front.png    cloth@1=cloth_front.jpg
