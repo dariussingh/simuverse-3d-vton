@@ -13,6 +13,9 @@ Output:
 
 ![PointCloud]
 
+## Demo
+You can follow the [notebook](./notebooks/M3D_VTON_Final.ipynb) for a demo of the implementation.
+
 ## Procedure
 - Install the requirements:
 
