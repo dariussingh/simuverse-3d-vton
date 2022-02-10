@@ -11,7 +11,9 @@ Input:
 
 Output:
 
-![PointCloud]
+![PointCloud](./assets/person@1=person_whole_front_result_3d.jpg)
+
+![Image](./assets/person@1=person_whole_front_result_2d.png)
 
 ## Demo
 You can follow the [notebook](./notebooks/M3D_VTON_Final.ipynb) for a demo of the implementation.
