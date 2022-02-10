@@ -11,7 +11,7 @@ Input:
 
 Output:
 
-![PointCloud](./assets/person@1=person_whole_front_result_3d.jpg)
+![PointCloud](./assets/person1=person_whole_front_result_3d.jpg)
 
 ![Image](./assets/person@1=person_whole_front_result_2d.png)
 
