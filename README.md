@@ -3,6 +3,16 @@
 ## Introduction
 This repository contains code to take image of a person and a clothing as input and create a virtual fitting of the cloth on the person, giving a 3D model output.
 
+Input:
+
+![Person](./assets/person@1=person_whole_front.png)
+
+![Cloth](./assets/cloth@1=cloth_front.jpg)
+
+Output:
+
+![PointCloud]
+
 ## Procedure
 - Install the requirements:
 
