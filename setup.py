@@ -14,15 +14,15 @@ if __name__=='__main__':
     os.system("mv latest_net_DRM.pth ./aligned/DRM/")
     os.system("mv latest_net_MTM.pth ./aligned/MTM/")
     os.system("mv latest_net_TFM.pth ./aligned/TFM/")
-    os.system("cd ..")
-    os.system("cd ..")
+    os.chdir("..")
+    os.chdir("..")
 
     # 2D human parsing
     os.system("git clone https://github.com/fyviezhao/2D-Human-Parsing")
-    os.system("cd 2D-Human-Parsing/pretrained")
+    os.chdir("2D-Human-Parsing/pretrained")
     os.system("gdown https://drive.google.com/uc?id=1cTYhbKbtrPfREVI_EkredmIq5WaT5GY6")
-    os.system("cd ..")
-    os.system("cd ..")
+    os.chdir("..")
+    os.chdir("..")
 
     # openpose
     git_repo_url = 'https://github.com/CMU-Perceptual-Computing-Lab/openpose.git'

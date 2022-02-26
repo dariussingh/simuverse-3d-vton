@@ -1,10 +1,10 @@
-opencv-python==4.1.2
+opencv-python==4.5.3
 pycocotools
 ipykernel==4.10.1
 scipy==1.4.1
 torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
 networkx==2.6.2
-open3d==0.14.1
+open3d>=0.14.1
 matplotlib==3.2.2
-numpy==1.19.5
-gdown==4.2.1
+numpy>=1.19.5
+gdown>=4.2.1

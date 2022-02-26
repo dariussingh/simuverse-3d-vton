@@ -13,26 +13,26 @@ if __name__=='__main__':
     
     # creating image parse
     os.system("cp -r './m3d-vton/input_data/image/person@1=person_whole_front.png' './2D-Human-Parsing/demo_imgs'")
-    os.system("cd 2D-Human-Parsing")
+    os.chdir("2D-Human-Parsing")
     with open('./inference/img_list.txt', 'w') as f:
         f.write('./inference/person@1=person_whole_front.png')
     with open('./demo_imgs/img_list.txt', 'w') as f:
         f.write('./demo_imgs/person@1=person_whole_front.png')
-    os.system("cd inference")
+    os.chdir("inference")
     os.system("bash demo.sh")
-    os.system("cd ..")
-    os.system("cd ..")
+    os.chdir("..")
+    os.chdir("..")
     os.system("cp -r './2D-Human-Parsing/parsing_result/train_parsing/demo_imgs/person@1=person_whole_front_label.png' './m3d-vton/input_data/image-parse' ")
     
     # creating pose keypoints
     os.system("cp -r './m3d-vton/input_data/image/person@1=person_whole_front.png' './openpose/examples/media'")
-    os.system("cd openpose")
+    os.chdir("openpose")
     os.system(" ./build/examples/openpose/openpose.bin --video /content/openpose/examples/media/person@1=person_whole_front.png --display 0 --render_pose 0 --face --hand --write_json output_json_folder/")
-    os.system("cd ..")
+    os.chdir("..")
     os.system("cp -r './openpose/output_json_folder/person@1=person_whole_front_000000000000_keypoints.json' './m3d-vton/input_data/pose/person@1=person_whole_front_keypoints.json'")
     
     # running inference
-    os.system("cd m3d-vton")
+    os.chdir("m3d-vton")
     os.system("python util/data_preprocessing.py --MPV3D_root input_data")
     os.system("python test.py --model MTM --name MTM --dataroot input_data --datalist test_pairs --results_dir results")
     os.system("python test.py --model DRM --name DRM --dataroot input_data --datalist test_pairs --results_dir results")
