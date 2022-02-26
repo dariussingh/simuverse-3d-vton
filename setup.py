@@ -7,7 +7,7 @@ import open3d as o3d
 if __name__=='__main__':
     # m3d-vton
     os.system("git clone https://github.com/fyviezhao/m3d-vton")
-    os.system("cd m3d-vton/pretrained")
+    os.chdir(os.getcwd() + "/m3d-vton/pretrained")
     os.system("gdown https://drive.google.com/uc?id=1wpN-yfa1_MbezqkcLfVspa2jVTJV7bjN")
     os.system("unzip -o M3D-VTON.zip ")
     os.system("rm M3D-VTON.zip")
