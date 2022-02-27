@@ -23,7 +23,11 @@ if __name__=='__main__':
     os.system("gdown https://drive.google.com/uc?id=1cTYhbKbtrPfREVI_EkredmIq5WaT5GY6")
     os.chdir("..")
     with open('./inference/demo.sh', 'w') as f:
-        f.write("""CUDA_VISIBLE_DEVICES=0 \ \npython inference_acc.py \ \n--loadmodel '../pretrained/deeplabv3plus-xception-vocNov14_20-51-38_epoch-89.pth' \ \n--img_list '../demo_imgs/img_list.txt' \ \n--output_dir '../parsing_result'""")
+        f.write("""CUDA_VISIBLE_DEVICES=0 \\
+python inference_acc.py \\
+--loadmodel '../pretrained/deeplabv3plus-xception-vocNov14_20-51-38_epoch-89.pth' \\
+--img_list '../demo_imgs/img_list.txt' \\
+--output_dir '../parsing_result'""")
     os.chdir("..")
 
     # openpose
