@@ -1,4 +1,4 @@
-opencv-python==4.5.3
+opencv-python==4.1.2
 pycocotools
 ipykernel==4.10.1
 scipy==1.4.1
@@ -8,3 +8,4 @@ open3d>=0.14.1
 matplotlib==3.2.2
 numpy>=1.19.5
 gdown>=4.2.1
+streamlit==1.6.0
