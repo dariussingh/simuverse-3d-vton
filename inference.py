@@ -33,11 +33,11 @@ if __name__=='__main__':
     
     # running inference
     os.chdir("m3d-vton")
-    os.system("python util/data_preprocessing.py --MPV3D_root input_data")
-    os.system("python test.py --model MTM --name MTM --dataroot input_data --datalist test_pairs --results_dir results")
-    os.system("python test.py --model DRM --name DRM --dataroot input_data --datalist test_pairs --results_dir results")
-    os.system("python test.py --model TFM --name TFM --dataroot input_data --datalist test_pairs --results_dir results")
-    os.system("python rgbd2pcd.py --parse_root input_data/image-parse")
+    os.system("python3 util/data_preprocessing.py --MPV3D_root input_data")
+    os.system("python3 test.py --model MTM --name MTM --dataroot input_data --datalist test_pairs --results_dir results")
+    os.system("python3 test.py --model DRM --name DRM --dataroot input_data --datalist test_pairs --results_dir results")
+    os.system("python3 test.py --model TFM --name TFM --dataroot input_data --datalist test_pairs --results_dir results")
+    os.system("python3 rgbd2pcd.py --parse_root input_data/image-parse")
     
     # post processing pcd
     os.system("mkdir ./results/aligned/final_pcd")
