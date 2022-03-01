@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 from PIL import Image
+import open3d as o3d
 
 st.set_page_config(layout='wide')
 
@@ -32,8 +33,16 @@ if st.button('Run Virtual Try-On'):
         with open('./m3d-vton/input_data/image/person@1=person_whole_front.png', 'wb') as f:
             f.write((person).getbuffer())
         # running inference
-        os.system("python3 inference.py")
+        # os.system("python3 inference.py")
+        output = Image.open('./m3d-vton/output_data/person@1=person_whole_front_result_2d.png')
+        st.image(output)
 
-        
-
+        # PCD
+        pcd = o3d.io.read_point_cloud('./m3d-vton/output_data/person@1=person.ply')
+        # normal estimation
+        pcd.estimate_normals()
+        pcd.orient_normals_consistent_tangent_plane(100)
+        # poisson surface reconstruction
+        mesh, densities = o3d.geometry.TriangleMesh.create_from_point_cloud_poisson(pcd, depth=9)
+        st.write(o3d.visualization.draw_geometries([mesh]))
         
