@@ -1,0 +1,4 @@
+person@1=person_whole_front.png    cloth@1=cloth_front.jpg
+person@2=person_whole_front.png    cloth@2=cloth_front.jpg
+person@3=person_whole_front.png    cloth@3=cloth_front.jpg
+person@4=person_whole_front.png    cloth@4=cloth_front.jpg
