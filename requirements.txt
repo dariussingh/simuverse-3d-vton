@@ -1,4 +1,4 @@
-opencv-python==4.1.2
+opencv-python>=4.0.0
 pycocotools
 ipykernel==4.10.1
 scipy==1.4.1
