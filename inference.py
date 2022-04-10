@@ -30,14 +30,14 @@ if __name__=='__main__':
     os.system("bash demo.sh")
     os.chdir("..")
     os.chdir("..")
-    os.system("cp -r './2D-Human-Parsing/parsing_result/train_parsing/demo_imgs/person@1=person_whole_front_label.png' './m3d-vton/input_data/image-parse' ")
+    os.system("cp -r './2D-Human-Parsing/parsing_result/train_parsing/demo_imgs/person@1=person_whole_front_label.png' f'./m3d-vton/{input_data}/image-parse' ")
     
     # creating pose keypoints
     os.system(f"cp -r './m3d-vton/{input_data}/image/person@1=person_whole_front.png' './openpose/examples/media'")
     os.chdir("openpose")
     os.system(" ./build/examples/openpose/openpose.bin --video ./examples/media/person@1=person_whole_front.png --display 0 --render_pose 0 --face --hand --write_json output_json_folder/")
     os.chdir("..")
-    os.system("cp -r './openpose/output_json_folder/person@1=person_whole_front_000000000000_keypoints.json' './m3d-vton/input_data/pose/person@1=person_whole_front_keypoints.json'")
+    os.system("cp -r './openpose/output_json_folder/person@1=person_whole_front_000000000000_keypoints.json' f'./m3d-vton/{input_data}/pose/person@1=person_whole_front_keypoints.json'")
     
     # running inference
     os.chdir("m3d-vton")
