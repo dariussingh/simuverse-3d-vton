@@ -3,16 +3,24 @@ import matplotlib.pyplot as plt
 import os
 from os.path import exists, join, basename, splitext
 import open3d as o3d 
+import argparse
 
 if __name__=='__main__':
+    # initialize the parser
+    parser = argparse.ArgumentParser()
+    # add the parameters
+    parser.add_argument('--input_data', help='Data Folder Name', default='input_data')
+    args = parser.parse_args()
+    input_data = args.input_data
+
     # create clothing mask
-    img = cv2.imread('./m3d-vton/input_data/cloth/cloth@1=cloth_front.jpg')
+    img = cv2.imread(f'./m3d-vton/{input_data}/cloth/cloth@1=cloth_front.jpg')
     img= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     ret, thresh = cv2.threshold(img,200, 255, cv2.THRESH_BINARY_INV)
-    cv2.imwrite('./m3d-vton/input_data/cloth-mask/cloth@1=cloth_front_mask.jpg', thresh)
+    cv2.imwrite(f'./m3d-vton/{input_data}/cloth-mask/cloth@1=cloth_front_mask.jpg', thresh)
     
     # creating image parse
-    os.system("cp -r './m3d-vton/input_data/image/person@1=person_whole_front.png' './2D-Human-Parsing/demo_imgs'")
+    os.system(f"cp -r './m3d-vton/{input_data}/image/person@1=person_whole_front.png' './2D-Human-Parsing/demo_imgs'")
     os.chdir("2D-Human-Parsing")
     with open('./inference/img_list.txt', 'w') as f:
         f.write('./inference/person@1=person_whole_front.png')
@@ -25,7 +33,7 @@ if __name__=='__main__':
     os.system("cp -r './2D-Human-Parsing/parsing_result/train_parsing/demo_imgs/person@1=person_whole_front_label.png' './m3d-vton/input_data/image-parse' ")
     
     # creating pose keypoints
-    os.system("cp -r './m3d-vton/input_data/image/person@1=person_whole_front.png' './openpose/examples/media'")
+    os.system(f"cp -r './m3d-vton/{input_data}/image/person@1=person_whole_front.png' './openpose/examples/media'")
     os.chdir("openpose")
     os.system(" ./build/examples/openpose/openpose.bin --video ./examples/media/person@1=person_whole_front.png --display 0 --render_pose 0 --face --hand --write_json output_json_folder/")
     os.chdir("..")
@@ -33,11 +41,11 @@ if __name__=='__main__':
     
     # running inference
     os.chdir("m3d-vton")
-    os.system("python3 util/data_preprocessing.py --MPV3D_root input_data")
-    os.system("python3 test.py --model MTM --name MTM --dataroot input_data --datalist test_pairs --results_dir results")
-    os.system("python3 test.py --model DRM --name DRM --dataroot input_data --datalist test_pairs --results_dir results")
-    os.system("python3 test.py --model TFM --name TFM --dataroot input_data --datalist test_pairs --results_dir results")
-    os.system("python3 rgbd2pcd.py --parse_root input_data/image-parse")
+    os.system(f"python3 util/data_preprocessing.py --MPV3D_root {input_data}")
+    os.system(f"python3 test.py --model MTM --name MTM --dataroot {input_data} --datalist test_pairs --results_dir results")
+    os.system(f"python3 test.py --model DRM --name DRM --dataroot {input_data} --datalist test_pairs --results_dir results")
+    os.system(f"python3 test.py --model TFM --name TFM --dataroot {input_data} --datalist test_pairs --results_dir results")
+    os.system(f"python3 rgbd2pcd.py --parse_root {input_data}/image-parse")
     
     # post processing pcd
     os.system("mkdir ./results/aligned/final_pcd")
