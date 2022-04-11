@@ -23,9 +23,9 @@ if __name__=='__main__':
     os.system(f"cp -r './m3d-vton/{input_data}/image/person@1=person_whole_front.png' './2D-Human-Parsing/demo_imgs'")
     os.chdir("2D-Human-Parsing")
     with open('./inference/img_list.txt', 'w') as f:
-        f.write('./inference/person@1=person_whole_front.png')
+        f.write('../demo_imgs/person@1=person_whole_front.png')
     with open('./demo_imgs/img_list.txt', 'w') as f:
-        f.write('./demo_imgs/person@1=person_whole_front.png')
+        f.write('../demo_imgs/person@1=person_whole_front.png')
     os.chdir("inference")
     os.system("bash demo.sh")
     os.chdir("..")
