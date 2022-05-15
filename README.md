@@ -30,11 +30,12 @@ You can follow the [notebook](./notebooks/M3D_VTON_Final.ipynb) for a demo of th
   pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
   ```
 - Run the setup.py script:
-
+- 
   ```
   python3 setup.py
   ``` 
-    
+  
+- NOTE: If you are facing errors building openpose in setup.py follow the [openpose installation guide](https://github.com/CMU-Perceptual-Computing-Lab/openpose#installation).
   
 - Create a folder called input_data with the following structure:
    ```
