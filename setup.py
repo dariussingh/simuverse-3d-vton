@@ -46,4 +46,6 @@ python3 inference_acc.py \\
       # install python dependencies
       os.system("pip install -q youtube-dl")
       # build openpose
+      # if you want to disable cudnn usage and use cpu only the uncomment the below
+      # os.system("cd openpose && rm -rf build || true && mkdir build && cd build && cmake  -DGPU_MODE=CPU_ONLY -DUSE_CUDNN=OFF .. && make -j`nproc`")
       os.system("cd openpose && rm -rf build || true && mkdir build && cd build && cmake .. && make -j`nproc`")
