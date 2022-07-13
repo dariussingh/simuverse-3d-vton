@@ -17,7 +17,7 @@ def root():
 
     try:
       # remove existing data
-	os.system("rm -r './m3d-vton/results'")
+      os.system("rm -r './m3d-vton/results'")
       os.system("rm -r './m3d-vton/input_data'")
       os.system("rm -r './2D-Human-Parsing/parsing_result'")
       os.system("rm -r './openpose/output_json_folder/person@1=person_whole_front_000000000000_keypoints.json'")
